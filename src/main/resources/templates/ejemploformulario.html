@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:object="${persona}" method="post" action="#" 
+								th:action="@{/ejemploformulario/aniadirpersona}"> 	
+								
+		<p>NOMBRE: <input type="text" th:field=*{nombre}/></p>
+		<p>APELLIDOS: <input type="text" th:field=*{apellidos}></p>
+				
+		<p>EDAD: <input type="number" th:field=*{edad}/></p>
+		<p>DNI: <input type="text" th:field=*{DNI} /> </p>
+		
+		<p><input type="submit" value="Aceptar"/></p>
+	</form>
+</body>
+</html>
