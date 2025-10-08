@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Listado Personas</title>
+<link rel="stylesheet" href="/styles/estilo-simple.css">
+</head>
+<body>
+
+	<form th:object="${persona}" method="post" action="#" 
+								th:action="@{/ejemplos/aniadirpersona}"> 	
+								
+		<p>NOMBRE: <input type="text" th:field=*{nombre}/></p>
+		<p>APELLIDOS: <input type="text" th:field=*{apellidos}></p>
+				
+		<p>EDAD: <input type="number" th:field=*{edad}/></p>
+		<p>DNI: <input type="text" th:field=*{DNI} /> </p>
+		
+		<p><input type="submit" value="Aceptar"/></p>
+	</form>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellidos</th>
+				<th>DNI</th>
+				<th>Edad</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="persona : ${personas}">
+				<th th:text="${persona.nombre}"></th>
+				<th th:text="${persona.apellidos}"></th>
+				<th th:text="${persona.DNI}"></th>
+				<th th:text="${persona.edad}"></th>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
