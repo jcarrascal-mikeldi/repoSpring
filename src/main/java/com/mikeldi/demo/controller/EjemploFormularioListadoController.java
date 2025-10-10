@@ -3,6 +3,8 @@ package com.mikeldi.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import com.mikeldi.demo.model.Persona;
 public class EjemploFormularioListadoController {
 	final String plantillaFormularioListado = "formulariolistado";
 	private ArrayList<Persona> personas= new ArrayList<Persona>();
+	private static final Log LOG = LogFactory.getLog(EjemploFormularioListadoController.class);
 
 	@GetMapping("/mostrarformulario")
 	public String mostrarForm(Model model) {
@@ -33,6 +36,7 @@ public class EjemploFormularioListadoController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(plantillaFormularioListado);
 		personas.add(persona);
+		LOG.info("Añadida persona " + persona.getNombre() + persona.getApellidos());
 		mav.addObject("personas", personas);
 		return mav;
 	}
