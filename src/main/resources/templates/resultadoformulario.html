@@ -13,6 +13,8 @@
 	
 	<h3>DNI: <span th:text="${persona.DNI}"></span></h3>
 	
+	<img th:src="'/' + @{${persona.nombre} + '.jpg'}" alt="Descripción de la imagen">
+	
 </body>
 
 </html>
