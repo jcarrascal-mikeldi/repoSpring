@@ -51,6 +51,10 @@ public class Usuario {
 		this.roles = roles;
 	}
 	
+	public void aniadidRol(RolModulo rol) {
+		this.getRoles().add(rol);
+	}
+	
 	
 	
 
