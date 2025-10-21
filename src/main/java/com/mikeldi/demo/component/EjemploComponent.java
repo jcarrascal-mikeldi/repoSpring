@@ -2,6 +2,8 @@ package com.mikeldi.demo.component;
 
 import java.util.ArrayList;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 
 import com.mikeldi.demo.model.Persona;
@@ -19,4 +21,10 @@ public class EjemploComponent {
 		return listaPersonas;
 	}
 
+	private static final Log LOG= LogFactory.getLog(EjemploComponent.class);
+	
+	public void saludito() {
+		LOG.info("Mensaje desde el metodo saludito");
+	}
+	
 }
