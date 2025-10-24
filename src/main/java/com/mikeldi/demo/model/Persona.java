@@ -1,9 +1,20 @@
 package com.mikeldi.demo.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="persona")
 public class Persona {
+	@Column
 	private String nombre;
+	@Column
 	private String apellidos;
+	@Id
 	private String DNI;
+	@Column
 	private int edad;
 	
 	public Persona() {}

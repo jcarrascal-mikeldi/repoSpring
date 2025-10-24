@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mikeldi.demo.component.EjemploComponent;
 import com.mikeldi.demo.model.Persona;
+import com.mikeldi.demo.service.impl.PersonaServiceImpl;
 
 @Controller
 @RequestMapping("/ejemplos")
@@ -29,6 +30,10 @@ public class EjemploFormularioListadoController {
 	@Autowired 
 	@Qualifier("ejemploComponent") 
 	EjemploComponent ejemplo;
+	
+	@Autowired
+	@Qualifier("personaServiceImpl")
+	PersonaServiceImpl servicePersona;
 
 	@GetMapping("/mostrarformulario")
 	public String mostrarForm(Model model) {
@@ -43,6 +48,9 @@ public class EjemploFormularioListadoController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(plantillaFormularioListado);
 		personas.add(persona);
+		servicePersona.aniadirPersona(persona);
+		
+		
 		LOG.info("Añadida persona " + persona.getNombre() + persona.getApellidos());
 		mav.addObject("personas", personas);
 		mav.addObject("persona", new Persona());
