@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${rol.id} != null ? 'Editar rol' : 'Nuevo rol'"></title>
+</head>
+<body>
+
+<h1 th:text="${rol.id} != null ? 'Editar rol' : 'Nuevo rol'"></h1>
+
+<form th:action="@{/roles/guardar}" method="post">
+
+    <input type="hidden" name="id" th:value="${rol.id}" />
+
+    <label>Nombre del rol (ej: ADMIN, VENTAS, ALMACEN):</label><br/>
+    <input type="text" name="nombre" th:value="${rol.nombre}" required/><br/><br/>
+
+    <label>Descripción:</label><br/>
+    <textarea name="descripcion" rows="3" cols="40"
+              th:text="${rol.descripcion}"></textarea><br/><br/>
+
+    <button type="submit">Guardar</button>
+    <a th:href="@{/roles}">Cancelar</a>
+
+</form>
+
+</body>
+</html>

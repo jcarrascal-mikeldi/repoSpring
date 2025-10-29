@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Roles</title>
+</head>
+<body>
+
+<h1>Roles del sistema</h1>
+
+<p><a th:href="@{/roles/nuevo}">Crear nuevo rol</a></p>
+<p><a th:href="@{/usuarios}">Volver a usuarios</a></p>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr th:each="r : ${roles}">
+        <td th:text="${r.id}"></td>
+        <td th:text="${r.nombre}"></td>
+        <td th:text="${r.descripcion}"></td>
+        <td>
+            <a th:href="@{'/roles/editar/' + ${r.id}}">Editar</a>
+            &nbsp;|&nbsp;
+            <a th:href="@{'/roles/borrar/' + ${r.id}}"
+               onclick="return confirm('¿Seguro que quieres borrar este rol?');">Borrar</a>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
